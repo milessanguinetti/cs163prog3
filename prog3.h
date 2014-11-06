@@ -16,16 +16,16 @@ class table //the class for all of our functions
 		~table(); //destructor
 
 		//Functions for the list of rejected words
-		int insertmanually(char const * toadd); 
+		int insertmanually(const char * toadd); 
 					   //manually add words
 		int insertautomatically(); //automatically add words
 
 		//Functions for the hash table of songs
 		int loadsongs(); //load songs from external file
-		int retrieve(char * title); //retrieve based on title
+		int retrieve(const char* title); //retrieve based on title
 		int displayall(); //display all songs
-		int remove(char * title); //remove based on title
-		int hash(char * title);
+		int remove(const char * title); //remove based on title
+		int hash(const char * title);
 		//^ this removes any rejected words from the front
 		//of a song name and returns the hash table index
 		//of the now-simplified song

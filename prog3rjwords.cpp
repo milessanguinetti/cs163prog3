@@ -57,7 +57,7 @@ table::~table() //destructor
 }
 
 //functions to make list of rejected words
-int table::insertmanually(char const * toadd)
+int table::insertmanually(const char * toadd)
 { //add a new rejected word.
 	if(!toadd) //can't insert nothing
 		return 0;

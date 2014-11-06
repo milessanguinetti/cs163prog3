@@ -25,12 +25,10 @@ class table //the class for all of our functions
 		int retrieve(char * title); //retrieve based on title
 		int displayall(); //display all songs
 		int remove(char * title); //remove based on title
-		char * simplify(char * title);
+		int hash(char * title);
 		//^ this removes any rejected words from the front
-		//of a song name and returns the simplified song.
-		//Making this a function is dramatically easier
-		//than writing the code for it in every single function
-		//that retrieves from or adds to the hash table.
+		//of a song name and returns the hash table index
+		//of the now-simplified song
 	
 	private:
 		node * rejectedhead; //Linear linked list head

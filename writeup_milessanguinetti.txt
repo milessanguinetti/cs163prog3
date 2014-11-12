@@ -1,0 +1,19 @@
+﻿Miles Sanguinetti
+Professor Karla Fant
+CS163
+
+Program 3 Writeup
+
+Probably the largest difficulty that I encountered while writing this program involved the functionality of being able to ignore certain words in my hash function. Originally, I programmed a working copy of the assignment that just checked the first word—since words like “the” or “an” generally don't appear as both the first and second words—which worked fine for collision avoidance, but didn't actually meet the criteria of the assignment. I pretty much had to rebuild the program from the ground up  to accommodate this.
+
+Originally, I considered parsing the title's words into nodes in a linear linked list, but that proved incredibly dysfunctional for comparison-based functions like “return.” I ended up just using a character array, but in the hash function, I would isolate individual words (not ending in “ “ or being the containing the last character in the array) and compare them to my list of rejected words before including them in the hash function's arithmetic. This required a lot of extra coding, but worked perfectly well.
+
+The hash table data structure seemed to work well for my program's needs. It's astronomically unlikely that I will get a lot of collisions when hashing long strings of diverse characters, so the structure required little—if any—traversal and generally allowed direct access to nodes based on their hash indices.
+
+I thought about replacing the linear linked lists with binary search trees, given that that would give me an even larger boost to runtime efficiency, but it seemed like a genuinely superfluous measure given that the program was invariably going to be working with fairly short lists of songs. Linear linked list traversal isn't as huge of a deal when there are only a couple of nodes per list.
+
+While the structures themselves seemed incredibly efficient, I feel like my hash function was probably a bit slow and memory intensive. I couldn't immediately figure out a better way to work out the word-exclusion functionality, but if I had to write the program again, that's probably something that I would look at and try to address.
+
+Also, though this was not included in the scope of the assignment, it might have been useful to be able to add songs—perhaps even adding them as the program runs and then writing them out to the external file at the program's conclusion.
+
+Deletion of songs being written to the file is another thing that might have been useful to look at in the scope of a larger timeframe.

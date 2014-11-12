@@ -1,11 +1,28 @@
 //Miles Sanguinetti CS163 2014
-//This is a program that neatly sorts songs
-//input from an external file.
+//This is a program that takes in a list of songs via
+//input from an external file (.txt) and prints information
+//via iostream, namely in the interfacing components in the
+//main cpp file. 
 
-struct node //Common LLL node structure
-{
+//The principle data structures used are a hash table of
+//linear linked lists and individual linear linked list.
+
+struct wordnode //Common LLL node structure;
+{		//used for the list of rejected words
 	char * data; //character data
-	node * next; //pointer to next node
+	wordnode * next; //pointer to next node
+};
+
+struct songnode //a LLL node for the hash table's entries.
+{		//contains song information.
+	songnode * next; //Pointer to the next node
+	char * title; //different parts of a given song's data
+	char * artist;
+	char * album;
+	char * minutes; //The song's length is kept as a char
+			//because minutes operate in base 60
+			//and floating points operate in base 10.
+	int played; //how many times the song has been retrieved
 };
 
 class table //the class for all of our functions
@@ -31,11 +48,11 @@ class table //the class for all of our functions
 		//of the now-simplified song
 	
 	private:
-		node * rejectedhead; //Linear linked list head
+		wordnode * rejectedhead; //Linear linked list head
 				     //for the sake of easily
 				     //adding new words to reject
 				     //from song titles
-		node ** hashtable; //Dynamically allocated
+		songnode ** hashtable; //Dynamically allocated
 				   //array of node pointers
 				   //for our chaining hash
 				   //table.
